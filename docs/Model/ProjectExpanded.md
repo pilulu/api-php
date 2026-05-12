@@ -3,13 +3,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **customer** | [**\Swagger\Client\Model\Customer**](Customer.md) |  | 
 **name** | **string** |  | 
+**orderNumber** | **string** |  | [optional] 
+**orderDate** | [**\DateTime**](\DateTime.md) | Attention: Accessor MUST be used, otherwise date will be serialized in UTC. | [optional] 
+**start** | [**\DateTime**](\DateTime.md) | Attention: Accessor MUST be used, otherwise date will be serialized in UTC. | [optional] 
+**end** | [**\DateTime**](\DateTime.md) | Attention: Accessor MUST be used, otherwise date will be serialized in UTC. | [optional] 
 **comment** | **string** |  | [optional] 
 **visible** | **bool** |  | [optional] [default to true]
 **billable** | **bool** |  | [optional] [default to true]
-**global_activities** | **bool** |  | [optional] [default to true]
+**metaFields** | [**\Swagger\Client\Model\ProjectMeta[]**](ProjectMeta.md) |  | [optional] 
+**globalActivities** | **bool** |  | [optional] [default to true]
 **number** | **string** |  | [optional] 
 **color** | **string** |  | [optional] 
 

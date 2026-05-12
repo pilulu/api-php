@@ -4,11 +4,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **project** | **int** |  | [optional] 
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **comment** | **string** |  | [optional] 
 **visible** | **bool** |  | [optional] [default to true]
 **billable** | **bool** |  | [optional] [default to true]
+**metaFields** | [**\Swagger\Client\Model\ActivityMeta[]**](ActivityMeta.md) |  | [optional] 
 **number** | **string** |  | [optional] 
 **color** | **string** |  | [optional] 
 

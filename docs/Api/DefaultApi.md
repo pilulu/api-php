@@ -4,16 +4,16 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAppApiConfigurationColorconfig**](DefaultApi.md#getappapiconfigurationcolorconfig) | **GET** /api/config/colors | Returns the configured color codes and names
-[**getAppApiConfigurationTimesheetconfig**](DefaultApi.md#getappapiconfigurationtimesheetconfig) | **GET** /api/config/timesheet | Returns the timesheet configuration
-[**getAppApiStatusPing**](DefaultApi.md#getappapistatusping) | **GET** /api/ping | A testing route for the API
-[**getAppApiStatusPlugin**](DefaultApi.md#getappapistatusplugin) | **GET** /api/plugins | Returns information about installed Plugins
-[**getAppApiStatusVersion**](DefaultApi.md#getappapistatusversion) | **GET** /api/version | Returns information about the Kimai release
+[**getAppApiConfigurationColorconfig**](DefaultApi.md#getappapiconfigurationcolorconfig) | **GET** /api/config/colors | Fetch configured color codes
+[**getAppApiConfigurationTimesheetconfig**](DefaultApi.md#getappapiconfigurationtimesheetconfig) | **GET** /api/config/timesheet | Fetch timesheet configuration
+[**getAppApiStatusPing**](DefaultApi.md#getappapistatusping) | **GET** /api/ping | Testing route for the API
+[**getAppApiStatusPlugin**](DefaultApi.md#getappapistatusplugin) | **GET** /api/plugins | Fetch installed Plugins
+[**getAppApiStatusVersion**](DefaultApi.md#getappapistatusversion) | **GET** /api/version | Fetch Kimai release
 
 # **getAppApiConfigurationColorconfig**
 > map[string,string] getAppApiConfigurationColorconfig()
 
-Returns the configured color codes and names
+Fetch configured color codes
 
 ### Example
 ```php
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 # **getAppApiConfigurationTimesheetconfig**
 > \Swagger\Client\Model\TimesheetConfig getAppApiConfigurationTimesheetconfig()
 
-Returns the timesheet configuration
+Fetch timesheet configuration
 
 ### Example
 ```php
@@ -109,7 +109,7 @@ This endpoint does not need any parameter.
 # **getAppApiStatusPing**
 > getAppApiStatusPing()
 
-A testing route for the API
+Testing route for the API
 
 ### Example
 ```php
@@ -156,7 +156,7 @@ void (empty response body)
 # **getAppApiStatusPlugin**
 > \Swagger\Client\Model\Plugin[] getAppApiStatusPlugin()
 
-Returns information about installed Plugins
+Fetch installed Plugins
 
 ### Example
 ```php
@@ -204,7 +204,7 @@ This endpoint does not need any parameter.
 # **getAppApiStatusVersion**
 > \Swagger\Client\Model\Version getAppApiStatusVersion()
 
-Returns information about the Kimai release
+Fetch Kimai release
 
 ### Example
 ```php

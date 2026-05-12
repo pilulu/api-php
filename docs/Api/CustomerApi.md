@@ -4,22 +4,22 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDeleteCustomer**](CustomerApi.md#deletedeletecustomer) | **DELETE** /api/customers/{id} | Delete an existing customer
-[**deleteDeleteCustomerRate**](CustomerApi.md#deletedeletecustomerrate) | **DELETE** /api/customers/{id}/rates/{rateId} | Deletes one rate for a customer
-[**getGetCustomer**](CustomerApi.md#getgetcustomer) | **GET** /api/customers/{id} | Returns one customer
-[**getGetCustomerRates**](CustomerApi.md#getgetcustomerrates) | **GET** /api/customers/{id}/rates | Returns a collection of all rates for one customer
-[**getGetCustomers**](CustomerApi.md#getgetcustomers) | **GET** /api/customers | Returns a collection of customers (which are visible to the user)
-[**patchAppApiCustomerMeta**](CustomerApi.md#patchappapicustomermeta) | **PATCH** /api/customers/{id}/meta | Sets the value of a meta-field for an existing customer
-[**patchPatchCustomer**](CustomerApi.md#patchpatchcustomer) | **PATCH** /api/customers/{id} | Update an existing customer
-[**postPostCustomer**](CustomerApi.md#postpostcustomer) | **POST** /api/customers | Creates a new customer
-[**postPostCustomerRate**](CustomerApi.md#postpostcustomerrate) | **POST** /api/customers/{id}/rates | Adds a new rate to a customer
+[**deleteCustomer**](CustomerApi.md#deletecustomer) | **DELETE** /api/customers/{id} | Delete customer
+[**deleteCustomerRate**](CustomerApi.md#deletecustomerrate) | **DELETE** /api/customers/{id}/rates/{rateId} | Delete rate for customer
+[**getCustomer**](CustomerApi.md#getcustomer) | **GET** /api/customers/{id} | Fetch customer
+[**getCustomerRates**](CustomerApi.md#getcustomerrates) | **GET** /api/customers/{id}/rates | Fetch rates for customer
+[**getCustomers**](CustomerApi.md#getcustomers) | **GET** /api/customers | Fetch customers
+[**patchAppApiCustomerMeta**](CustomerApi.md#patchappapicustomermeta) | **PATCH** /api/customers/{id}/meta | Update customer custom-field
+[**patchCustomer**](CustomerApi.md#patchcustomer) | **PATCH** /api/customers/{id} | Update customer
+[**postCustomer**](CustomerApi.md#postcustomer) | **POST** /api/customers | Create customer
+[**postCustomerRate**](CustomerApi.md#postcustomerrate) | **POST** /api/customers/{id}/rates | Add rate for customer
 
-# **deleteDeleteCustomer**
-> deleteDeleteCustomer($id)
+# **deleteCustomer**
+> deleteCustomer($id)
 
-Delete an existing customer
+Delete customer
 
-[DANGER] This will also delete ALL linked projects, project activities and timesheets. Maybe use `PATCH` instead and mark it as inactive with `visible=false`?
+[DANGER] This will also delete ALL linked projects, project activities and timesheets. Do you want to use `PATCH` instead and mark it as inactive with `{visible: false}` instead?
 
 ### Example
 ```php
@@ -39,9 +39,9 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
 $id = "id_example"; // string | Customer ID to delete
 
 try {
-    $apiInstance->deleteDeleteCustomer($id);
+    $apiInstance->deleteCustomer($id);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->deleteDeleteCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,10 +67,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteDeleteCustomerRate**
-> deleteDeleteCustomerRate($id, $rate_id)
+# **deleteCustomerRate**
+> deleteCustomerRate($id, $rateId)
 
-Deletes one rate for a customer
+Delete rate for customer
 
 ### Example
 ```php
@@ -88,12 +88,12 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
     $config
 );
 $id = "id_example"; // string | The customer whose rate will be removed
-$rate_id = "rate_id_example"; // string | The rate to remove
+$rateId = "rateId_example"; // string | The rate to remove
 
 try {
-    $apiInstance->deleteDeleteCustomerRate($id, $rate_id);
+    $apiInstance->deleteCustomerRate($id, $rateId);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->deleteDeleteCustomerRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->deleteCustomerRate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -103,7 +103,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The customer whose rate will be removed |
- **rate_id** | **string**| The rate to remove |
+ **rateId** | **string**| The rate to remove |
 
 ### Return type
 
@@ -120,10 +120,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetCustomer**
-> \Swagger\Client\Model\CustomerEntity getGetCustomer($id)
+# **getCustomer**
+> \Swagger\Client\Model\CustomerEntity getCustomer($id)
 
-Returns one customer
+Fetch customer
 
 ### Example
 ```php
@@ -143,10 +143,10 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
 $id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getGetCustomer($id);
+    $result = $apiInstance->getCustomer($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getGetCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->getCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -172,10 +172,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetCustomerRates**
-> \Swagger\Client\Model\CustomerRate[] getGetCustomerRates($id)
+# **getCustomerRates**
+> \Swagger\Client\Model\CustomerRate[] getCustomerRates($id)
 
-Returns a collection of all rates for one customer
+Fetch rates for customer
 
 ### Example
 ```php
@@ -195,10 +195,10 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
 $id = "id_example"; // string | The customer whose rates will be returned
 
 try {
-    $result = $apiInstance->getGetCustomerRates($id);
+    $result = $apiInstance->getCustomerRates($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getGetCustomerRates: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->getCustomerRates: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -224,10 +224,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetCustomers**
-> \Swagger\Client\Model\CustomerCollection[] getGetCustomers($visible, $order, $order_by, $term)
+# **getCustomers**
+> \Swagger\Client\Model\CustomerCollection[] getCustomers($visible, $order, $orderBy, $term)
 
-Returns a collection of customers (which are visible to the user)
+Fetch customers
 
 ### Example
 ```php
@@ -246,14 +246,14 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
 );
 $visible = "1"; // string | Visibility status to filter customers: 1=visible, 2=hidden, 3=both
 $order = "order_example"; // string | The result order. Allowed values: ASC, DESC (default: ASC)
-$order_by = "order_by_example"; // string | The field by which results will be ordered. Allowed values: id, name (default: name)
+$orderBy = "orderBy_example"; // string | The field by which results will be ordered. Allowed values: id, name (default: name)
 $term = "term_example"; // string | Free search term
 
 try {
-    $result = $apiInstance->getGetCustomers($visible, $order, $order_by, $term);
+    $result = $apiInstance->getCustomers($visible, $order, $orderBy, $term);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->getGetCustomers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->getCustomers: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **visible** | **string**| Visibility status to filter customers: 1&#x3D;visible, 2&#x3D;hidden, 3&#x3D;both | [optional] [default to 1]
  **order** | **string**| The result order. Allowed values: ASC, DESC (default: ASC) | [optional]
- **order_by** | **string**| The field by which results will be ordered. Allowed values: id, name (default: name) | [optional]
+ **orderBy** | **string**| The field by which results will be ordered. Allowed values: id, name (default: name) | [optional]
  **term** | **string**| Free search term | [optional]
 
 ### Return type
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 # **patchAppApiCustomerMeta**
 > \Swagger\Client\Model\CustomerEntity patchAppApiCustomerMeta($id, $body)
 
-Sets the value of a meta-field for an existing customer
+Update customer custom-field
 
 ### Example
 ```php
@@ -303,7 +303,7 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
     $config
 );
 $id = "id_example"; // string | Customer record ID to set the meta-field value for
-$body = new \Swagger\Client\Model\IdMetaBody3(); // \Swagger\Client\Model\IdMetaBody3 | 
+$body = new \Swagger\Client\Model\IdMetaBody1(); // \Swagger\Client\Model\IdMetaBody1 | 
 
 try {
     $result = $apiInstance->patchAppApiCustomerMeta($id, $body);
@@ -319,7 +319,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Customer record ID to set the meta-field value for |
- **body** | [**\Swagger\Client\Model\IdMetaBody3**](../Model/IdMetaBody3.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\IdMetaBody1**](../Model/IdMetaBody1.md)|  | [optional]
 
 ### Return type
 
@@ -336,10 +336,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **patchPatchCustomer**
-> \Swagger\Client\Model\CustomerEntity patchPatchCustomer($body, $id)
+# **patchCustomer**
+> \Swagger\Client\Model\CustomerEntity patchCustomer($body, $id)
 
-Update an existing customer
+Update customer
 
 Update an existing customer, you can pass all or just a subset of all attributes
 
@@ -362,10 +362,10 @@ $body = new \Swagger\Client\Model\CustomerEditForm(); // \Swagger\Client\Model\C
 $id = "id_example"; // string | Customer ID to update
 
 try {
-    $result = $apiInstance->patchPatchCustomer($body, $id);
+    $result = $apiInstance->patchCustomer($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->patchPatchCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->patchCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -392,10 +392,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostCustomer**
-> \Swagger\Client\Model\CustomerEntity postPostCustomer($body)
+# **postCustomer**
+> \Swagger\Client\Model\CustomerEntity postCustomer($body)
 
-Creates a new customer
+Create customer
 
 Creates a new customer and returns it afterwards
 
@@ -417,10 +417,10 @@ $apiInstance = new Swagger\Client\Api\CustomerApi(
 $body = new \Swagger\Client\Model\CustomerEditForm(); // \Swagger\Client\Model\CustomerEditForm | 
 
 try {
-    $result = $apiInstance->postPostCustomer($body);
+    $result = $apiInstance->postCustomer($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->postPostCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->postCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -446,10 +446,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostCustomerRate**
-> \Swagger\Client\Model\CustomerRate postPostCustomerRate($body, $id)
+# **postCustomerRate**
+> \Swagger\Client\Model\CustomerRate postCustomerRate($body, $id)
 
-Adds a new rate to a customer
+Add rate for customer
 
 ### Example
 ```php
@@ -470,10 +470,10 @@ $body = new \Swagger\Client\Model\CustomerRateForm(); // \Swagger\Client\Model\C
 $id = "id_example"; // string | The customer to add the rate for
 
 try {
-    $result = $apiInstance->postPostCustomerRate($body, $id);
+    $result = $apiInstance->postCustomerRate($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomerApi->postPostCustomerRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomerApi->postCustomerRate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

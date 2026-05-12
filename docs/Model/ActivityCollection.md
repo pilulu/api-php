@@ -3,14 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**parent_title** | **string** |  | [optional] 
+**parentTitle** | **string** |  | [optional] 
 **project** | **int** |  | [optional] 
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **comment** | **string** |  | [optional] 
 **visible** | **bool** |  | [optional] [default to true]
 **billable** | **bool** |  | [optional] [default to true]
-**meta_fields** | [**\Swagger\Client\Model\ActivityMeta[]**](ActivityMeta.md) |  | [optional] 
+**metaFields** | [**\Swagger\Client\Model\ActivityMeta[]**](ActivityMeta.md) |  | [optional] 
 **teams** | [**\Swagger\Client\Model\Team[]**](Team.md) |  | [optional] 
 **number** | **string** |  | [optional] 
 **color** | **string** |  | [optional] 

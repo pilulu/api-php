@@ -4,22 +4,22 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDeleteActivity**](ActivityApi.md#deletedeleteactivity) | **DELETE** /api/activities/{id} | Delete an existing activity
-[**deleteDeleteActivityRate**](ActivityApi.md#deletedeleteactivityrate) | **DELETE** /api/activities/{id}/rates/{rateId} | Deletes one rate for an activity
-[**getGetActivities**](ActivityApi.md#getgetactivities) | **GET** /api/activities | Returns a collection of activities (which are visible to the user)
-[**getGetActivity**](ActivityApi.md#getgetactivity) | **GET** /api/activities/{id} | Returns one activity
-[**getGetActivityRates**](ActivityApi.md#getgetactivityrates) | **GET** /api/activities/{id}/rates | Returns a collection of all rates for one activity
-[**patchAppApiActivityMeta**](ActivityApi.md#patchappapiactivitymeta) | **PATCH** /api/activities/{id}/meta | Sets the value of a meta-field for an existing activity
-[**patchPatchActivity**](ActivityApi.md#patchpatchactivity) | **PATCH** /api/activities/{id} | Update an existing activity
-[**postPostActivity**](ActivityApi.md#postpostactivity) | **POST** /api/activities | Creates a new activity
-[**postPostActivityRate**](ActivityApi.md#postpostactivityrate) | **POST** /api/activities/{id}/rates | Adds a new rate to an activity
+[**deleteActivity**](ActivityApi.md#deleteactivity) | **DELETE** /api/activities/{id} | Delete activity
+[**deleteActivityRate**](ActivityApi.md#deleteactivityrate) | **DELETE** /api/activities/{id}/rates/{rateId} | Delete rate for activity
+[**getActivities**](ActivityApi.md#getactivities) | **GET** /api/activities | Fetch activities
+[**getActivity**](ActivityApi.md#getactivity) | **GET** /api/activities/{id} | Fetch activity
+[**getActivityRates**](ActivityApi.md#getactivityrates) | **GET** /api/activities/{id}/rates | Fetch rates for activity
+[**patchActivity**](ActivityApi.md#patchactivity) | **PATCH** /api/activities/{id} | Update activity
+[**patchAppApiActivityMeta**](ActivityApi.md#patchappapiactivitymeta) | **PATCH** /api/activities/{id}/meta | Update activity custom-field
+[**postActivity**](ActivityApi.md#postactivity) | **POST** /api/activities | Create activity
+[**postActivityRate**](ActivityApi.md#postactivityrate) | **POST** /api/activities/{id}/rates | Add rate for activity
 
-# **deleteDeleteActivity**
-> deleteDeleteActivity($id)
+# **deleteActivity**
+> deleteActivity($id)
 
-Delete an existing activity
+Delete activity
 
-[DANGER] This will also delete ALL linked timesheets. Maybe use `PATCH` instead and mark it as inactive with `visible=false`?
+[DANGER] This will also delete ALL linked timesheets. Do you want to use `PATCH` instead and mark it as inactive with `{visible: false}` instead?
 
 ### Example
 ```php
@@ -39,9 +39,9 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
 $id = "id_example"; // string | Activity ID to delete
 
 try {
-    $apiInstance->deleteDeleteActivity($id);
+    $apiInstance->deleteActivity($id);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->deleteDeleteActivity: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->deleteActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -67,10 +67,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteDeleteActivityRate**
-> deleteDeleteActivityRate($id, $rate_id)
+# **deleteActivityRate**
+> deleteActivityRate($id, $rateId)
 
-Deletes one rate for an activity
+Delete rate for activity
 
 ### Example
 ```php
@@ -88,12 +88,12 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
     $config
 );
 $id = "id_example"; // string | The activity whose rate will be removed
-$rate_id = "rate_id_example"; // string | The rate to remove
+$rateId = "rateId_example"; // string | The rate to remove
 
 try {
-    $apiInstance->deleteDeleteActivityRate($id, $rate_id);
+    $apiInstance->deleteActivityRate($id, $rateId);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->deleteDeleteActivityRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->deleteActivityRate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -103,7 +103,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The activity whose rate will be removed |
- **rate_id** | **string**| The rate to remove |
+ **rateId** | **string**| The rate to remove |
 
 ### Return type
 
@@ -120,10 +120,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetActivities**
-> \Swagger\Client\Model\ActivityCollection[] getGetActivities($project, $projects, $visible, $globals, $order_by, $order, $term)
+# **getActivities**
+> \Swagger\Client\Model\ActivityCollection[] getActivities($project, $projects, $visible, $globals, $orderBy, $order, $term)
 
-Returns a collection of activities (which are visible to the user)
+Fetch activities
 
 ### Example
 ```php
@@ -141,18 +141,18 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
     $config
 );
 $project = "project_example"; // string | Project ID to filter activities
-$projects = array(new \Swagger\Client\Model\null[]()); // null[] | List of project IDs to filter activities, e.g.: projects[]=1&projects[]=2
+$projects = new \Swagger\Client\Model\array(); // array | List of project IDs to filter activities, e.g.: projects[]=1&projects[]=2
 $visible = "1"; // string | Visibility status to filter activities: 1=visible, 2=hidden, 3=all
 $globals = "globals_example"; // string | Use if you want to fetch only global activities. Allowed values: 0|1 (default: 0 for false)
-$order_by = "order_by_example"; // string | The field by which results will be ordered. Allowed values: id, name, project (default: name)
+$orderBy = "orderBy_example"; // string | The field by which results will be ordered. Allowed values: id, name, project (default: name)
 $order = "order_example"; // string | The result order. Allowed values: ASC, DESC (default: ASC)
 $term = "term_example"; // string | Free search term
 
 try {
-    $result = $apiInstance->getGetActivities($project, $projects, $visible, $globals, $order_by, $order, $term);
+    $result = $apiInstance->getActivities($project, $projects, $visible, $globals, $orderBy, $order, $term);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->getGetActivities: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->getActivities: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -162,10 +162,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project** | **string**| Project ID to filter activities | [optional]
- **projects** | [**null[]**](../Model/.md)| List of project IDs to filter activities, e.g.: projects[]&#x3D;1&amp;projects[]&#x3D;2 | [optional] [default to []]
+ **projects** | [**array**](../Model/.md)| List of project IDs to filter activities, e.g.: projects[]&#x3D;1&amp;projects[]&#x3D;2 | [optional] [default to []]
  **visible** | **string**| Visibility status to filter activities: 1&#x3D;visible, 2&#x3D;hidden, 3&#x3D;all | [optional] [default to 1]
  **globals** | **string**| Use if you want to fetch only global activities. Allowed values: 0|1 (default: 0 for false) | [optional]
- **order_by** | **string**| The field by which results will be ordered. Allowed values: id, name, project (default: name) | [optional]
+ **orderBy** | **string**| The field by which results will be ordered. Allowed values: id, name, project (default: name) | [optional]
  **order** | **string**| The result order. Allowed values: ASC, DESC (default: ASC) | [optional]
  **term** | **string**| Free search term | [optional]
 
@@ -184,10 +184,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetActivity**
-> \Swagger\Client\Model\ActivityEntity getGetActivity($id)
+# **getActivity**
+> \Swagger\Client\Model\ActivityEntity getActivity($id)
 
-Returns one activity
+Fetch activity
 
 ### Example
 ```php
@@ -207,10 +207,10 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
 $id = "id_example"; // string | Activity ID to fetch
 
 try {
-    $result = $apiInstance->getGetActivity($id);
+    $result = $apiInstance->getActivity($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->getGetActivity: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->getActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -236,10 +236,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetActivityRates**
-> \Swagger\Client\Model\ActivityRate[] getGetActivityRates($id)
+# **getActivityRates**
+> \Swagger\Client\Model\ActivityRate[] getActivityRates($id)
 
-Returns a collection of all rates for one activity
+Fetch rates for activity
 
 ### Example
 ```php
@@ -259,10 +259,10 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
 $id = "id_example"; // string | The activity whose rates will be returned
 
 try {
-    $result = $apiInstance->getGetActivityRates($id);
+    $result = $apiInstance->getActivityRates($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->getGetActivityRates: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->getActivityRates: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -288,64 +288,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **patchAppApiActivityMeta**
-> \Swagger\Client\Model\ActivityEntity patchAppApiActivityMeta($id, $body)
+# **patchActivity**
+> \Swagger\Client\Model\ActivityEntity patchActivity($body, $id)
 
-Sets the value of a meta-field for an existing activity
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearer
-    $config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Swagger\Client\Api\ActivityApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | Activity record ID to set the meta-field value for
-$body = new \Swagger\Client\Model\IdMetaBody2(); // \Swagger\Client\Model\IdMetaBody2 | 
-
-try {
-    $result = $apiInstance->patchAppApiActivityMeta($id, $body);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->patchAppApiActivityMeta: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Activity record ID to set the meta-field value for |
- **body** | [**\Swagger\Client\Model\IdMetaBody2**](../Model/IdMetaBody2.md)|  | [optional]
-
-### Return type
-
-[**\Swagger\Client\Model\ActivityEntity**](../Model/ActivityEntity.md)
-
-### Authorization
-
-[bearer](../../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **patchPatchActivity**
-> \Swagger\Client\Model\ActivityEntity patchPatchActivity($body, $id)
-
-Update an existing activity
+Update activity
 
 Update an existing activity, you can pass all or just a subset of all attributes
 
@@ -368,10 +314,10 @@ $body = new \Swagger\Client\Model\ActivityEditForm(); // \Swagger\Client\Model\A
 $id = "id_example"; // string | Activity ID to update
 
 try {
-    $result = $apiInstance->patchPatchActivity($body, $id);
+    $result = $apiInstance->patchActivity($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->patchPatchActivity: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->patchActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -398,10 +344,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostActivity**
-> \Swagger\Client\Model\ActivityEntity postPostActivity($body)
+# **patchAppApiActivityMeta**
+> \Swagger\Client\Model\ActivityEntity patchAppApiActivityMeta($id, $body)
 
-Creates a new activity
+Update activity custom-field
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Swagger\Client\Api\ActivityApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | Activity record ID to set the meta-field value for
+$body = new \Swagger\Client\Model\IdMetaBody(); // \Swagger\Client\Model\IdMetaBody | 
+
+try {
+    $result = $apiInstance->patchAppApiActivityMeta($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ActivityApi->patchAppApiActivityMeta: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| Activity record ID to set the meta-field value for |
+ **body** | [**\Swagger\Client\Model\IdMetaBody**](../Model/IdMetaBody.md)|  | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\ActivityEntity**](../Model/ActivityEntity.md)
+
+### Authorization
+
+[bearer](../../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postActivity**
+> \Swagger\Client\Model\ActivityEntity postActivity($body)
+
+Create activity
 
 Creates a new activity and returns it afterwards
 
@@ -423,10 +423,10 @@ $apiInstance = new Swagger\Client\Api\ActivityApi(
 $body = new \Swagger\Client\Model\ActivityEditForm(); // \Swagger\Client\Model\ActivityEditForm | 
 
 try {
-    $result = $apiInstance->postPostActivity($body);
+    $result = $apiInstance->postActivity($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->postPostActivity: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->postActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -452,10 +452,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostActivityRate**
-> \Swagger\Client\Model\ActivityRate postPostActivityRate($body, $id)
+# **postActivityRate**
+> \Swagger\Client\Model\ActivityRate postActivityRate($body, $id)
 
-Adds a new rate to an activity
+Add rate for activity
 
 ### Example
 ```php
@@ -476,10 +476,10 @@ $body = new \Swagger\Client\Model\ActivityRateForm(); // \Swagger\Client\Model\A
 $id = "id_example"; // string | The activity to add the rate for
 
 try {
-    $result = $apiInstance->postPostActivityRate($body, $id);
+    $result = $apiInstance->postActivityRate($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActivityApi->postPostActivityRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActivityApi->postActivityRate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

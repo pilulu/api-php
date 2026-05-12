@@ -4,24 +4,24 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDeleteTeam**](TeamApi.md#deletedeleteteam) | **DELETE** /api/teams/{id} | Delete a team
-[**deleteDeleteTeamActivity**](TeamApi.md#deletedeleteteamactivity) | **DELETE** /api/teams/{id}/activities/{activityId} | Revokes access for an activity from a team
-[**deleteDeleteTeamCustomer**](TeamApi.md#deletedeleteteamcustomer) | **DELETE** /api/teams/{id}/customers/{customerId} | Revokes access for a customer from a team
-[**deleteDeleteTeamMember**](TeamApi.md#deletedeleteteammember) | **DELETE** /api/teams/{id}/members/{userId} | Removes a member from the team
-[**deleteDeleteTeamProject**](TeamApi.md#deletedeleteteamproject) | **DELETE** /api/teams/{id}/projects/{projectId} | Revokes access for a project from a team
-[**getGetTeam**](TeamApi.md#getgetteam) | **GET** /api/teams/{id} | Returns one team
-[**getGetTeams**](TeamApi.md#getgetteams) | **GET** /api/teams | Fetch all existing teams (which are visible to the user)
-[**patchPatchTeam**](TeamApi.md#patchpatchteam) | **PATCH** /api/teams/{id} | Update an existing team
-[**postPostTeam**](TeamApi.md#postpostteam) | **POST** /api/teams | Creates a new team
-[**postPostTeamActivity**](TeamApi.md#postpostteamactivity) | **POST** /api/teams/{id}/activities/{activityId} | Grant the team access to an activity
-[**postPostTeamCustomer**](TeamApi.md#postpostteamcustomer) | **POST** /api/teams/{id}/customers/{customerId} | Grant the team access to a customer
-[**postPostTeamMember**](TeamApi.md#postpostteammember) | **POST** /api/teams/{id}/members/{userId} | Add a new member to a team
-[**postPostTeamProject**](TeamApi.md#postpostteamproject) | **POST** /api/teams/{id}/projects/{projectId} | Grant the team access to a project
+[**deleteTeam**](TeamApi.md#deleteteam) | **DELETE** /api/teams/{id} | Delete team
+[**deleteTeamActivity**](TeamApi.md#deleteteamactivity) | **DELETE** /api/teams/{id}/activities/{activityId} | Revoke activity access
+[**deleteTeamCustomer**](TeamApi.md#deleteteamcustomer) | **DELETE** /api/teams/{id}/customers/{customerId} | Revoke customer access
+[**deleteTeamMember**](TeamApi.md#deleteteammember) | **DELETE** /api/teams/{id}/members/{userId} | Remove team member
+[**deleteTeamProject**](TeamApi.md#deleteteamproject) | **DELETE** /api/teams/{id}/projects/{projectId} | Revoke project access
+[**getTeam**](TeamApi.md#getteam) | **GET** /api/teams/{id} | Fetch team
+[**getTeams**](TeamApi.md#getteams) | **GET** /api/teams | Fetch teams
+[**patchTeam**](TeamApi.md#patchteam) | **PATCH** /api/teams/{id} | Update team
+[**postTeam**](TeamApi.md#postteam) | **POST** /api/teams | Create team
+[**postTeamActivity**](TeamApi.md#postteamactivity) | **POST** /api/teams/{id}/activities/{activityId} | Grant activity access
+[**postTeamCustomer**](TeamApi.md#postteamcustomer) | **POST** /api/teams/{id}/customers/{customerId} | Grant customer access
+[**postTeamMember**](TeamApi.md#postteammember) | **POST** /api/teams/{id}/members/{userId} | Add team member
+[**postTeamProject**](TeamApi.md#postteamproject) | **POST** /api/teams/{id}/projects/{projectId} | Grant project access
 
-# **deleteDeleteTeam**
-> deleteDeleteTeam($id)
+# **deleteTeam**
+> deleteTeam($id)
 
-Delete a team
+Delete team
 
 ### Example
 ```php
@@ -41,9 +41,9 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
 $id = "id_example"; // string | Team ID to delete
 
 try {
-    $apiInstance->deleteDeleteTeam($id);
+    $apiInstance->deleteTeam($id);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->deleteDeleteTeam: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->deleteTeam: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -69,64 +69,12 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteDeleteTeamActivity**
-> \Swagger\Client\Model\Team deleteDeleteTeamActivity($id, $activity_id)
+# **deleteTeamActivity**
+> \Swagger\Client\Model\Team deleteTeamActivity($id, $activityId)
 
-Revokes access for an activity from a team
+Revoke activity access
 
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearer
-    $config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Swagger\Client\Api\TeamApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | The team whose permission will be revoked
-$activity_id = "activity_id_example"; // string | The activity to remove (Activity ID)
-
-try {
-    $result = $apiInstance->deleteDeleteTeamActivity($id, $activity_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TeamApi->deleteDeleteTeamActivity: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The team whose permission will be revoked |
- **activity_id** | **string**| The activity to remove (Activity ID) |
-
-### Return type
-
-[**\Swagger\Client\Model\Team**](../Model/Team.md)
-
-### Authorization
-
-[bearer](../../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **deleteDeleteTeamCustomer**
-> \Swagger\Client\Model\Team deleteDeleteTeamCustomer($id, $customer_id)
-
-Revokes access for a customer from a team
+This removes access to the activity from the team.
 
 ### Example
 ```php
@@ -144,13 +92,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team whose permission will be revoked
-$customer_id = "customer_id_example"; // string | The customer to remove (Customer ID)
+$activityId = "activityId_example"; // string | The activity to remove (Activity ID)
 
 try {
-    $result = $apiInstance->deleteDeleteTeamCustomer($id, $customer_id);
+    $result = $apiInstance->deleteTeamActivity($id, $activityId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->deleteDeleteTeamCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->deleteTeamActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -160,7 +108,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team whose permission will be revoked |
- **customer_id** | **string**| The customer to remove (Customer ID) |
+ **activityId** | **string**| The activity to remove (Activity ID) |
 
 ### Return type
 
@@ -177,10 +125,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteDeleteTeamMember**
-> \Swagger\Client\Model\Team deleteDeleteTeamMember($id, $user_id)
+# **deleteTeamCustomer**
+> \Swagger\Client\Model\Team deleteTeamCustomer($id, $customerId)
 
-Removes a member from the team
+Revoke customer access
+
+This removes access to the customer from the team.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Swagger\Client\Api\TeamApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | The team whose permission will be revoked
+$customerId = "customerId_example"; // string | The customer to remove (Customer ID)
+
+try {
+    $result = $apiInstance->deleteTeamCustomer($id, $customerId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TeamApi->deleteTeamCustomer: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The team whose permission will be revoked |
+ **customerId** | **string**| The customer to remove (Customer ID) |
+
+### Return type
+
+[**\Swagger\Client\Model\Team**](../Model/Team.md)
+
+### Authorization
+
+[bearer](../../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteTeamMember**
+> \Swagger\Client\Model\Team deleteTeamMember($id, $userId)
+
+Remove team member
 
 ### Example
 ```php
@@ -198,13 +202,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team from which the member will be removed
-$user_id = "user_id_example"; // string | The team member to remove (User ID)
+$userId = "userId_example"; // string | The team member to remove (User ID)
 
 try {
-    $result = $apiInstance->deleteDeleteTeamMember($id, $user_id);
+    $result = $apiInstance->deleteTeamMember($id, $userId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->deleteDeleteTeamMember: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->deleteTeamMember: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -214,7 +218,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team from which the member will be removed |
- **user_id** | **string**| The team member to remove (User ID) |
+ **userId** | **string**| The team member to remove (User ID) |
 
 ### Return type
 
@@ -231,10 +235,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **deleteDeleteTeamProject**
-> \Swagger\Client\Model\Team deleteDeleteTeamProject($id, $project_id)
+# **deleteTeamProject**
+> \Swagger\Client\Model\Team deleteTeamProject($id, $projectId)
 
-Revokes access for a project from a team
+Revoke project access
+
+This removes access to the project from the team.
 
 ### Example
 ```php
@@ -252,13 +258,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team whose permission will be revoked
-$project_id = "project_id_example"; // string | The project to remove (Project ID)
+$projectId = "projectId_example"; // string | The project to remove (Project ID)
 
 try {
-    $result = $apiInstance->deleteDeleteTeamProject($id, $project_id);
+    $result = $apiInstance->deleteTeamProject($id, $projectId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->deleteDeleteTeamProject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->deleteTeamProject: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -268,7 +274,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team whose permission will be revoked |
- **project_id** | **string**| The project to remove (Project ID) |
+ **projectId** | **string**| The project to remove (Project ID) |
 
 ### Return type
 
@@ -285,10 +291,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetTeam**
-> \Swagger\Client\Model\Team getGetTeam($id)
+# **getTeam**
+> \Swagger\Client\Model\Team getTeam($id)
 
-Returns one team
+Fetch team
 
 ### Example
 ```php
@@ -308,10 +314,10 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
 $id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getGetTeam($id);
+    $result = $apiInstance->getTeam($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->getGetTeam: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->getTeam: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -337,10 +343,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetTeams**
-> \Swagger\Client\Model\TeamCollection[] getGetTeams()
+# **getTeams**
+> \Swagger\Client\Model\TeamCollection[] getTeams()
 
-Fetch all existing teams (which are visible to the user)
+Fetch teams
 
 ### Example
 ```php
@@ -359,10 +365,10 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
 );
 
 try {
-    $result = $apiInstance->getGetTeams();
+    $result = $apiInstance->getTeams();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->getGetTeams: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->getTeams: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -385,10 +391,10 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **patchPatchTeam**
-> \Swagger\Client\Model\Team patchPatchTeam($body, $id)
+# **patchTeam**
+> \Swagger\Client\Model\Team patchTeam($body, $id)
 
-Update an existing team
+Update team
 
 Update an existing team, you can pass all or just a subset of all attributes (passing members will replace all existing ones)
 
@@ -411,10 +417,10 @@ $body = new \Swagger\Client\Model\TeamEditForm(); // \Swagger\Client\Model\TeamE
 $id = "id_example"; // string | Team ID to update
 
 try {
-    $result = $apiInstance->patchPatchTeam($body, $id);
+    $result = $apiInstance->patchTeam($body, $id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->patchPatchTeam: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->patchTeam: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -441,10 +447,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostTeam**
-> \Swagger\Client\Model\Team postPostTeam($body)
+# **postTeam**
+> \Swagger\Client\Model\Team postTeam($body)
 
-Creates a new team
+Create team
 
 Creates a new team and returns it afterwards
 
@@ -466,10 +472,10 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
 $body = new \Swagger\Client\Model\TeamEditForm(); // \Swagger\Client\Model\TeamEditForm | 
 
 try {
-    $result = $apiInstance->postPostTeam($body);
+    $result = $apiInstance->postTeam($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->postPostTeam: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->postTeam: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -495,64 +501,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostTeamActivity**
-> \Swagger\Client\Model\Team postPostTeamActivity($id, $activity_id)
+# **postTeamActivity**
+> \Swagger\Client\Model\Team postTeamActivity($id, $activityId)
 
-Grant the team access to an activity
+Grant activity access
 
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-    // Configure HTTP bearer authorization: bearer
-    $config = Swagger\Client\Configuration::getDefaultConfiguration()
-    ->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Swagger\Client\Api\TeamApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | The team that is granted access
-$activity_id = "activity_id_example"; // string | The activity to grant acecess to (Activity ID)
-
-try {
-    $result = $apiInstance->postPostTeamActivity($id, $activity_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TeamApi->postPostTeamActivity: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| The team that is granted access |
- **activity_id** | **string**| The activity to grant acecess to (Activity ID) |
-
-### Return type
-
-[**\Swagger\Client\Model\Team**](../Model/Team.md)
-
-### Authorization
-
-[bearer](../../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **postPostTeamCustomer**
-> \Swagger\Client\Model\Team postPostTeamCustomer($id, $customer_id)
-
-Grant the team access to a customer
+The team is granted access to the activity.
 
 ### Example
 ```php
@@ -570,13 +524,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team that is granted access
-$customer_id = "customer_id_example"; // string | The customer to grant acecess to (Customer ID)
+$activityId = "activityId_example"; // string | The activity to grant acecess to (Activity ID)
 
 try {
-    $result = $apiInstance->postPostTeamCustomer($id, $customer_id);
+    $result = $apiInstance->postTeamActivity($id, $activityId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->postPostTeamCustomer: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->postTeamActivity: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -586,7 +540,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team that is granted access |
- **customer_id** | **string**| The customer to grant acecess to (Customer ID) |
+ **activityId** | **string**| The activity to grant acecess to (Activity ID) |
 
 ### Return type
 
@@ -603,10 +557,66 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostTeamMember**
-> \Swagger\Client\Model\Team postPostTeamMember($id, $user_id)
+# **postTeamCustomer**
+> \Swagger\Client\Model\Team postTeamCustomer($id, $customerId)
 
-Add a new member to a team
+Grant customer access
+
+The team is granted access to the customer.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Swagger\Client\Api\TeamApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | The team that is granted access
+$customerId = "customerId_example"; // string | The customer to grant acecess to (Customer ID)
+
+try {
+    $result = $apiInstance->postTeamCustomer($id, $customerId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TeamApi->postTeamCustomer: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The team that is granted access |
+ **customerId** | **string**| The customer to grant acecess to (Customer ID) |
+
+### Return type
+
+[**\Swagger\Client\Model\Team**](../Model/Team.md)
+
+### Authorization
+
+[bearer](../../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postTeamMember**
+> \Swagger\Client\Model\Team postTeamMember($id, $userId)
+
+Add team member
 
 ### Example
 ```php
@@ -624,13 +634,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team which will receive the new member
-$user_id = "user_id_example"; // string | The team member to add (User ID)
+$userId = "userId_example"; // string | The team member to add (User ID)
 
 try {
-    $result = $apiInstance->postPostTeamMember($id, $user_id);
+    $result = $apiInstance->postTeamMember($id, $userId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->postPostTeamMember: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->postTeamMember: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -640,7 +650,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team which will receive the new member |
- **user_id** | **string**| The team member to add (User ID) |
+ **userId** | **string**| The team member to add (User ID) |
 
 ### Return type
 
@@ -657,10 +667,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostTeamProject**
-> \Swagger\Client\Model\Team postPostTeamProject($id, $project_id)
+# **postTeamProject**
+> \Swagger\Client\Model\Team postTeamProject($id, $projectId)
 
-Grant the team access to a project
+Grant project access
+
+The team is granted access to the project.
 
 ### Example
 ```php
@@ -678,13 +690,13 @@ $apiInstance = new Swagger\Client\Api\TeamApi(
     $config
 );
 $id = "id_example"; // string | The team that is granted access
-$project_id = "project_id_example"; // string | The project to grant acecess to (Project ID)
+$projectId = "projectId_example"; // string | The project to grant acecess to (Project ID)
 
 try {
-    $result = $apiInstance->postPostTeamProject($id, $project_id);
+    $result = $apiInstance->postTeamProject($id, $projectId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamApi->postPostTeamProject: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->postTeamProject: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -694,7 +706,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The team that is granted access |
- **project_id** | **string**| The project to grant acecess to (Project ID) |
+ **projectId** | **string**| The project to grant acecess to (Project ID) |
 
 ### Return type
 

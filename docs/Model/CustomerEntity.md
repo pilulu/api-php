@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **number** | **string** |  | [optional] 
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **visible** | **bool** |  | [optional] [default to true]
 **billable** | **bool** |  | [optional] [default to true]
 **company** | **string** |  | [optional] 
-**vat_id** | **string** |  | [optional] 
+**vatId** | **string** |  | [optional] 
 **contact** | **string** |  | [optional] 
 **address** | **string** |  | [optional] 
 **country** | **string** |  | 
@@ -21,11 +22,17 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional] 
 **homepage** | **string** |  | [optional] 
 **timezone** | **string** |  | 
-**meta_fields** | [**\Swagger\Client\Model\CustomerMeta[]**](CustomerMeta.md) |  | [optional] 
+**metaFields** | [**\Swagger\Client\Model\CustomerMeta[]**](CustomerMeta.md) |  | [optional] 
 **teams** | [**\Swagger\Client\Model\Team[]**](Team.md) |  | [optional] 
+**addressLine1** | **string** |  | [optional] 
+**addressLine2** | **string** |  | [optional] 
+**addressLine3** | **string** |  | [optional] 
+**postCode** | **string** |  | [optional] 
+**city** | **string** |  | [optional] 
+**buyerReference** | **string** |  | [optional] 
 **budget** | **float** |  | [optional] [default to 0]
-**time_budget** | **int** |  | [optional] [default to 0]
-**budget_type** | **string** |  | [optional] 
+**timeBudget** | **int** |  | [optional] [default to 0]
+**budgetType** | **string** |  | [optional] 
 **color** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

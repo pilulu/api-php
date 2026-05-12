@@ -3,14 +3,22 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **number** | **string** |  | [optional] 
 **comment** | **string** |  | [optional] 
 **visible** | **bool** |  | [optional] [default to true]
 **billable** | **bool** |  | [optional] [default to true]
+**company** | **string** |  | [optional] 
+**country** | **string** |  | 
 **currency** | **string** |  | [optional] [default to 'EUR']
-**meta_fields** | [**\Swagger\Client\Model\CustomerMeta[]**](CustomerMeta.md) |  | [optional] 
+**phone** | **string** |  | [optional] 
+**fax** | **string** |  | [optional] 
+**mobile** | **string** |  | [optional] 
+**homepage** | **string** |  | [optional] 
+**timezone** | **string** |  | 
+**metaFields** | [**\Swagger\Client\Model\CustomerMeta[]**](CustomerMeta.md) |  | [optional] 
 **teams** | [**\Swagger\Client\Model\Team[]**](Team.md) |  | [optional] 
 **color** | **string** |  | [optional] 
 

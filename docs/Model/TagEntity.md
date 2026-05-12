@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**color_safe** | **string** |  | [optional] 
+**colorSafe** | **string** |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **string** |  | 
 **visible** | **bool** |  | [optional] [default to true]

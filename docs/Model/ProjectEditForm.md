@@ -6,14 +6,18 @@ Name | Type | Description | Notes
 **name** | **string** |  | 
 **number** | **string** |  | [optional] 
 **comment** | **string** |  | [optional] 
-**invoice_text** | **string** |  | [optional] 
-**order_number** | **string** |  | [optional] 
-**order_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**invoiceText** | **string** |  | [optional] 
+**orderNumber** | **string** |  | [optional] 
+**orderDate** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **start** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **end** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **customer** | **int** | Customer ID | 
+**teams** | **int[]** | Array of Team IDs | [optional] 
 **color** | **string** | The hexadecimal color code (default: auto-calculated by name) | [optional] 
-**global_activities** | **bool** |  | [optional] 
+**budget** | [****](.md) | The money budget | [optional] 
+**timeBudget** | **string** | Duration - supports various formats: https://www.kimai.org/documentation/duration-format.html | [optional] 
+**budgetType** | **string** | The type of budget. Only submit if you want to use a monthly budget. | [optional] 
+**globalActivities** | **bool** |  | [optional] 
 **visible** | **bool** |  | [optional] 
 **billable** | **bool** |  | [optional] 
 

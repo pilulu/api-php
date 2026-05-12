@@ -4,15 +4,15 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getGetActivityActions**](ActionsApi.md#getgetactivityactions) | **GET** /api/actions/activity/{id}/{view}/{locale} | Get all item actions for the given Activity [for internal use]
-[**getGetCustomerActions**](ActionsApi.md#getgetcustomeractions) | **GET** /api/actions/customer/{id}/{view}/{locale} | Get all item actions for the given Customer [for internal use]
-[**getGetProjectActions**](ActionsApi.md#getgetprojectactions) | **GET** /api/actions/project/{id}/{view}/{locale} | Get all item actions for the given Project [for internal use]
-[**getGetTimesheetActions**](ActionsApi.md#getgettimesheetactions) | **GET** /api/actions/timesheet/{id}/{view}/{locale} | Get all item actions for the given Timesheet [for internal use]
+[**getActivityActions**](ActionsApi.md#getactivityactions) | **GET** /api/actions/activity/{id}/{view}/{locale} | Fetch item actions for Activity
+[**getCustomerActions**](ActionsApi.md#getcustomeractions) | **GET** /api/actions/customer/{id}/{view}/{locale} | Fetch item actions for Customer
+[**getProjectActions**](ActionsApi.md#getprojectactions) | **GET** /api/actions/project/{id}/{view}/{locale} | Fetch item actions for Project
+[**getTimesheetActions**](ActionsApi.md#gettimesheetactions) | **GET** /api/actions/timesheet/{id}/{view}/{locale} | Fetch item actions for Timesheet
 
-# **getGetActivityActions**
-> \Swagger\Client\Model\PageAction getGetActivityActions($id, $view, $locale)
+# **getActivityActions**
+> \Swagger\Client\Model\PageAction getActivityActions($id, $view, $locale)
 
-Get all item actions for the given Activity [for internal use]
+Fetch item actions for Activity
 
 ### Example
 ```php
@@ -34,10 +34,10 @@ $view = "view_example"; // string | View to display the actions at (e.g. index, 
 $locale = "locale_example"; // string | Language to translate the action title to (e.g. de, en)
 
 try {
-    $result = $apiInstance->getGetActivityActions($id, $view, $locale);
+    $result = $apiInstance->getActivityActions($id, $view, $locale);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActionsApi->getGetActivityActions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActionsApi->getActivityActions: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -65,10 +65,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetCustomerActions**
-> \Swagger\Client\Model\PageAction getGetCustomerActions($id, $view, $locale)
+# **getCustomerActions**
+> \Swagger\Client\Model\PageAction getCustomerActions($id, $view, $locale)
 
-Get all item actions for the given Customer [for internal use]
+Fetch item actions for Customer
 
 ### Example
 ```php
@@ -90,10 +90,10 @@ $view = "view_example"; // string | View to display the actions at (e.g. index, 
 $locale = "locale_example"; // string | Language to translate the action title to (e.g. de, en)
 
 try {
-    $result = $apiInstance->getGetCustomerActions($id, $view, $locale);
+    $result = $apiInstance->getCustomerActions($id, $view, $locale);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActionsApi->getGetCustomerActions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActionsApi->getCustomerActions: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -121,10 +121,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetProjectActions**
-> \Swagger\Client\Model\PageAction getGetProjectActions($id, $view, $locale)
+# **getProjectActions**
+> \Swagger\Client\Model\PageAction getProjectActions($id, $view, $locale)
 
-Get all item actions for the given Project [for internal use]
+Fetch item actions for Project
 
 ### Example
 ```php
@@ -146,10 +146,10 @@ $view = "view_example"; // string | View to display the actions at (e.g. index, 
 $locale = "locale_example"; // string | Language to translate the action title to (e.g. de, en)
 
 try {
-    $result = $apiInstance->getGetProjectActions($id, $view, $locale);
+    $result = $apiInstance->getProjectActions($id, $view, $locale);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActionsApi->getGetProjectActions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActionsApi->getProjectActions: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -177,10 +177,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetTimesheetActions**
-> \Swagger\Client\Model\PageAction getGetTimesheetActions($id, $view, $locale)
+# **getTimesheetActions**
+> \Swagger\Client\Model\PageAction getTimesheetActions($id, $view, $locale)
 
-Get all item actions for the given Timesheet [for internal use]
+Fetch item actions for Timesheet
 
 ### Example
 ```php
@@ -202,10 +202,10 @@ $view = "view_example"; // string | View to display the actions at (e.g. index, 
 $locale = "locale_example"; // string | Language to translate the action title to (e.g. de, en)
 
 try {
-    $result = $apiInstance->getGetTimesheetActions($id, $view, $locale);
+    $result = $apiInstance->getTimesheetActions($id, $view, $locale);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ActionsApi->getGetTimesheetActions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActionsApi->getTimesheetActions: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

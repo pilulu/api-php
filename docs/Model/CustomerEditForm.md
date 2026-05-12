@@ -7,9 +7,13 @@ Name | Type | Description | Notes
 **number** | **string** |  | [optional] 
 **comment** | **string** |  | [optional] 
 **company** | **string** |  | [optional] 
-**vat_id** | **string** |  | [optional] 
+**vatId** | **string** |  | [optional] 
 **contact** | **string** |  | [optional] 
-**address** | **string** |  | [optional] 
+**addressLine1** | **string** |  | [optional] 
+**addressLine2** | **string** |  | [optional] 
+**addressLine3** | **string** |  | [optional] 
+**postCode** | **string** |  | [optional] 
+**city** | **string** |  | [optional] 
 **country** | **string** |  | 
 **currency** | **string** |  | 
 **phone** | **string** |  | [optional] 
@@ -18,9 +22,14 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional] 
 **homepage** | **string** |  | [optional] 
 **timezone** | **string** |  | 
-**invoice_text** | **string** |  | [optional] 
-**invoice_template** | **string** |  | [optional] 
+**invoiceText** | **string** |  | [optional] 
+**invoiceTemplate** | **string** |  | [optional] 
+**buyerReference** | **string** |  | [optional] 
+**teams** | **int[]** | Array of Team IDs | [optional] 
 **color** | **string** | The hexadecimal color code (default: auto-calculated by name) | [optional] 
+**budget** | [****](.md) | The money budget | [optional] 
+**timeBudget** | **string** | Duration - supports various formats: https://www.kimai.org/documentation/duration-format.html | [optional] 
+**budgetType** | **string** | The type of budget. Only submit if you want to use a monthly budget. | [optional] 
 **visible** | **bool** |  | [optional] 
 **billable** | **bool** |  | [optional] 
 

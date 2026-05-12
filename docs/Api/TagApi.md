@@ -4,15 +4,15 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDeleteTag**](TagApi.md#deletedeletetag) | **DELETE** /api/tags/{id} | Delete a tag
-[**getGetTags**](TagApi.md#getgettags) | **GET** /api/tags | Deprecated: Fetch tags by filter as string collection
-[**getGetTagsFull**](TagApi.md#getgettagsfull) | **GET** /api/tags/find | Fetch tags by filter (as full entities)
-[**postPostTag**](TagApi.md#postposttag) | **POST** /api/tags | Creates a new tag
+[**deleteTag**](TagApi.md#deletetag) | **DELETE** /api/tags/{id} | Delete tag
+[**getTags**](TagApi.md#gettags) | **GET** /api/tags | Deprecated: Fetch tags as strings
+[**getTagsFull**](TagApi.md#gettagsfull) | **GET** /api/tags/find | Fetch tags
+[**postTag**](TagApi.md#posttag) | **POST** /api/tags | Create tag
 
-# **deleteDeleteTag**
-> deleteDeleteTag($id)
+# **deleteTag**
+> deleteTag($id)
 
-Delete a tag
+Delete tag
 
 ### Example
 ```php
@@ -32,9 +32,9 @@ $apiInstance = new Swagger\Client\Api\TagApi(
 $id = "id_example"; // string | Tag ID to delete
 
 try {
-    $apiInstance->deleteDeleteTag($id);
+    $apiInstance->deleteTag($id);
 } catch (Exception $e) {
-    echo 'Exception when calling TagApi->deleteDeleteTag: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TagApi->deleteTag: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -60,10 +60,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetTags**
-> string[] getGetTags($name)
+# **getTags**
+> string[] getTags($name)
 
-Deprecated: Fetch tags by filter as string collection
+Deprecated: Fetch tags as strings
 
 ### Example
 ```php
@@ -83,10 +83,10 @@ $apiInstance = new Swagger\Client\Api\TagApi(
 $name = "name_example"; // string | Search term to filter tag list
 
 try {
-    $result = $apiInstance->getGetTags($name);
+    $result = $apiInstance->getTags($name);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TagApi->getGetTags: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TagApi->getTags: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -112,10 +112,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getGetTagsFull**
-> \Swagger\Client\Model\TagEntity[] getGetTagsFull($name)
+# **getTagsFull**
+> \Swagger\Client\Model\TagEntity[] getTagsFull($name)
 
-Fetch tags by filter (as full entities)
+Fetch tags
 
 ### Example
 ```php
@@ -135,10 +135,10 @@ $apiInstance = new Swagger\Client\Api\TagApi(
 $name = "name_example"; // string | Search term to filter tag list
 
 try {
-    $result = $apiInstance->getGetTagsFull($name);
+    $result = $apiInstance->getTagsFull($name);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TagApi->getGetTagsFull: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TagApi->getTagsFull: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -164,10 +164,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postPostTag**
-> \Swagger\Client\Model\TagEntity postPostTag($body)
+# **postTag**
+> \Swagger\Client\Model\TagEntity postTag($body)
 
-Creates a new tag
+Create tag
 
 Creates a new tag and returns it afterwards
 
@@ -189,10 +189,10 @@ $apiInstance = new Swagger\Client\Api\TagApi(
 $body = new \Swagger\Client\Model\TagEditForm(); // \Swagger\Client\Model\TagEditForm | 
 
 try {
-    $result = $apiInstance->postPostTag($body);
+    $result = $apiInstance->postTag($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TagApi->postPostTag: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TagApi->postTag: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
